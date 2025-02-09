@@ -3,15 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Chocolate Day</title>
+    <title>Happy Teddy Day</title>
     <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #8B4513, #4B2C20);
+            background: linear-gradient(to bottom, #FFD1DC, #FF69B4);
             color: #fff;
             text-align: center;
             overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,105,180,0.3) 40%, rgba(255,0,0,0) 70%);
+            animation: moveBg 6s linear infinite;
+            z-index: 0;
+        }
+
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: #FF69B4;
+            position: absolute;
+            animation: float 5s linear infinite;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes moveBg {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(-10%, -10%); }
+            100% { transform: translate(0, 0); }
         }
 
         .container {
@@ -22,40 +69,26 @@
             animation: fadeIn 2s ease;
             width: 90%;
             max-width: 600px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 10px;
-            color: #F4E7D3;
+            color: #FFF5EE;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1rem;
             margin: 15px 0;
         }
 
-        .chocolates {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .chocolates img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid #F4E7D3;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-            animation: bounce 1.5s infinite;
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 1rem;
-            color: #F4E7D3;
+        .teddy {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto;
+            animation: bounce 2s infinite;
         }
 
         .section {
@@ -64,30 +97,26 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: transform 0.8s;
+            transition: transform 0.8s ease-in-out;
             padding: 0 10px;
-        }
-
-        .section:nth-child(2) {
-            background: linear-gradient(to bottom, #4B2C20, #8B4513);
-            transform: translateY(100vh);
+            position: relative;
         }
 
         .scroll-btn {
             margin-top: 20px;
-            background: #F4E7D3;
-            color: #8B4513;
+            background: #FFF5EE;
+            color: #FF69B4;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 1rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             animation: fadeIn 2s ease 1.5s;
         }
 
         .scroll-btn:hover {
-            background: #EEDFCC;
+            background: #FFB6C1;
         }
 
         @keyframes fadeIn {
@@ -97,44 +126,75 @@
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
         }
 
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            .teddy {
+                width: 100px;
+                height: 100px;
+            }
+
+            .scroll-btn {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+            }
+
+            .container {
+                width: 95%;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="animated-bg"></div>
+    <div class="hearts"></div>
+
     <div class="section" id="section1">
         <div class="container">
-            <h1>Happy Chocolate Day!</h1>
-            <p>My sweetest love, you are the chocolate to my life—filling every moment with sweetness and joy.</p>
-            <p>May your day be as delightful and rich as the best chocolate in the world. 💕</p>
-
-            <div class="chocolates">
-                <img src="bournville.jpeg" alt="Chocolate 1">
-                <img src="diary milk.jpg" alt="Chocolate 2">
-                <img src="kitkat.jpeg" alt="Chocolate 3">
-            </div>
-
-            <button class="scroll-btn" onclick="scrollToNextSection()">Next</button>
+            <h1>Happy Teddy Day!</h1>
+            <p>To my cutest teddy, you make my life as warm and cuddly as a teddy bear's hug. 💕</p>
+            <img src="teddy day.jpg" alt="Teddy Bear" class="teddy">
+            <button class="scroll-btn" onclick="scrollToSection('section2')">Next</button>
         </div>
     </div>
 
-    <div class="section" id="section2">
+    <div class="section" id="section2" style="background: linear-gradient(to bottom, #FF69B4, #FFD1DC);">
         <div class="container">
-            <h1>You Make Life Sweeter!</h1>
-            <p>Thank you for being my constant source of happiness and love.</p>
-            <p>On this Chocolate Day, I promise to keep filling your life with love, joy, and sweet surprises. ❤️</p>
+            <h1>My Sweet Teddy!</h1>
+            <p>Dear Teddy,</p>
+            <p>Just like a teddy bear, you bring endless comfort, joy, and love into my life. On this special day, I want you to know how precious you are to me. ❤️</p>
             <div class="footer">
-                <p>With love, your forever Valentine ❤️</p>
+                <p>With all my love, your forever admirer 💖</p>
             </div>
         </div>
     </div>
 
     <script>
-        function scrollToNextSection() {
-            const section2 = document.getElementById('section2');
-            section2.style.transform = 'translateY(-100vh)';
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
+
+        function createHearts() {
+            const heartContainer = document.querySelector('.hearts');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heartContainer.appendChild(heart);
+            }
+        }
+
+        createHearts();
     </script>
 </body>
 </html>
