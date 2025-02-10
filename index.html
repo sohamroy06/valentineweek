@@ -3,198 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Teddy Day</title>
+    <title>Promise Day</title>
     <style>
         body {
             margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #FFD1DC, #FF69B4);
-            color: #fff;
-            text-align: center;
-            overflow-x: hidden;
-        }
-
-        .animated-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,105,180,0.3) 40%, rgba(255,0,0,0) 70%);
-            animation: moveBg 6s linear infinite;
-            z-index: 0;
-        }
-
-        .hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .heart {
-            width: 20px;
-            height: 20px;
-            background-color: #FF69B4;
-            position: absolute;
-            animation: float 5s linear infinite;
-            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) scale(0.5);
-                opacity: 0;
-            }
-        }
-
-        @keyframes moveBg {
-            0% { transform: translate(0, 0); }
-            50% { transform: translate(-10%, -10%); }
-            100% { transform: translate(0, 0); }
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #FFF5EE;
-        }
-
-        p {
-            font-size: 1rem;
-            margin: 15px 0;
-        }
-
-        .teddy {
-            width: 120px;
-            height: 120px;
-            margin: 20px auto;
-            animation: bounce 2s infinite;
-        }
-
-        .section {
-            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ffe4e1, #ffb6c1);
+            background-size: 200% 200%;
+            animation: gradientAnimation 10s ease infinite;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: transform 0.8s ease-in-out;
-            padding: 0 10px;
+            min-height: 100vh;
+            padding: 20px;
             position: relative;
+            overflow: hidden;
         }
 
-        .scroll-btn {
-            margin-top: 20px;
-            background: #FFF5EE;
-            color: #FF69B4;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes floatHearts {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff69b4;
+            opacity: 0.7;
+            clip-path: polygon(50% 0%, 61% 15%, 75% 15%, 100% 50%, 82% 85%, 50% 100%, 18% 85%, 0% 50%, 25% 15%, 39% 15%);
+            animation: floatHearts 8s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 6s;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-duration: 8s;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+
+        .heart:nth-child(4) {
+            left: 70%;
+            animation-duration: 5s;
+            animation-delay: 4s;
+        }
+
+        .heart:nth-child(5) {
+            left: 90%;
+            animation-duration: 9s;
+            animation-delay: 5s;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #b22222;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        p {
+            color: #d2691e;
             font-size: 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 2s ease 1.5s;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding: 0 15px;
         }
 
-        .scroll-btn:hover {
-            background: #FFB6C1;
+        .card {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 300px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        .heart {
+            color: #ff4500;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 1.8rem;
-            }
+        .gift {
+            color: #800080;
+        }
 
-            p {
-                font-size: 0.9rem;
-            }
+        .star {
+            color: #ffd700;
+        }
 
-            .teddy {
-                width: 100px;
-                height: 100px;
-            }
+        .button {
+            display: inline-block;
+            background-color: #ff69b4;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
 
-            .scroll-btn {
-                font-size: 0.9rem;
-                padding: 8px 15px;
-            }
+        .button:hover {
+            background-color: #ff1493;
+        }
 
-            .container {
-                width: 95%;
-            }
+        footer {
+            margin-top: 40px;
+            color: #800000;
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 0 15px;
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-    <div class="hearts"></div>
-
-    <div class="section" id="section1">
-        <div class="container">
-            <h1>Happy Teddy Day!</h1>
-            <p>To my cutest teddy, you make my life as warm and cuddly as a teddy bear's hug. 💕</p>
-            <img src="teddy day.jpg" alt="Teddy Bear" class="teddy">
-            <button class="scroll-btn" onclick="scrollToSection('section2')">Next</button>
-        </div>
+    <div class="heart-bg">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
     </div>
 
-    <div class="section" id="section2" style="background: linear-gradient(to bottom, #FF69B4, #FFD1DC);">
-        <div class="container">
-            <h1>My Sweet Teddy!</h1>
-            <p>Dear Teddy,</p>
-            <p>Just like a teddy bear, you bring endless comfort, joy, and love into my life. On this special day, I want you to know how precious you are to me. ❤️</p>
-            <div class="footer">
-                <p>With all my love, your forever admirer 💖</p>
-            </div>
-        </div>
+    <h1>Happy Promise Day, My Love! ❤️</h1>
+    <p>Today, I promise to cherish you, support you, and make every day as beautiful as you are. You make my world brighter, and this is just the beginning of countless promises I intend to keep for you. 💖</p>
+
+    <div class="card">
+        <div class="icon heart">❤️</div>
+        <p>I promise to love you endlessly, in every season and in every moment.</p>
+    </div>
+    <div class="card">
+        <div class="icon gift">🎁</div>
+        <p>I promise to make all your dreams come true and celebrate your joys as my own.</p>
+    </div>
+    <div class="card">
+        <div class="icon star">⭐</div>
+        <p>I promise to be your guiding star, always showing you how special you are.</p>
     </div>
 
-    <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
+    <a href="#" class="button">Scroll for More Surprises 🌹</a>
 
-        function createHearts() {
-            const heartContainer = document.querySelector('.hearts');
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heartContainer.appendChild(heart);
-            }
-        }
-
-        createHearts();
-    </script>
+    <footer>
+        <p>Made with love for you my bubu 💕</p>
+        <p>Forever yours, Soham 💞</p>
+    </footer>
 </body>
 </html>
