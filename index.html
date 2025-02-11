@@ -3,191 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promise Day</title>
+    <title>Hug Day ❤️</title>
     <style>
         body {
+            font-family: 'Georgia', serif;
+            background-color: #ffe6e6;
+            color: #4d2600;
+            text-align: center;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(45deg, #ffe4e1, #ffb6c1);
-            background-size: 200% 200%;
-            animation: gradientAnimation 10s ease infinite;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            justify-content: flex-start;
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
-        }
-
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes floatHearts {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-10vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .heart-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
             overflow: hidden;
-            z-index: -1;
         }
 
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff69b4;
-            opacity: 0.7;
-            clip-path: polygon(50% 0%, 61% 15%, 75% 15%, 100% 50%, 82% 85%, 50% 100%, 18% 85%, 0% 50%, 25% 15%, 39% 15%);
-            animation: floatHearts 8s linear infinite;
-        }
-
-        .heart:nth-child(1) {
-            left: 10%;
-            animation-duration: 6s;
-            animation-delay: 1s;
-        }
-
-        .heart:nth-child(2) {
-            left: 30%;
-            animation-duration: 8s;
-            animation-delay: 2s;
-        }
-
-        .heart:nth-child(3) {
-            left: 50%;
-            animation-duration: 7s;
-            animation-delay: 3s;
-        }
-
-        .heart:nth-child(4) {
-            left: 70%;
-            animation-duration: 5s;
-            animation-delay: 4s;
-        }
-
-        .heart:nth-child(5) {
-            left: 90%;
-            animation-duration: 9s;
-            animation-delay: 5s;
+        .container {
+            background-color: #fff0f5;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            width: 100%;
+            animation: fadeIn 2s ease-in-out;
+            margin: 20px;
         }
 
         h1 {
-            font-size: 2rem;
-            color: #b22222;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-            margin-bottom: 1rem;
-            text-align: center;
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s infinite;
         }
 
         p {
-            color: #d2691e;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            padding: 0 15px;
-        }
-
-        .card {
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            width: 90%;
-            max-width: 300px;
-        }
-
-        .icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .heart {
-            color: #ff4500;
+            color: #ff4d4d;
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
         }
 
-        .gift {
-            color: #800080;
-        }
-
-        .star {
-            color: #ffd700;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #ff69b4;
+        .hug-button {
+            background-color: #ff4d4d;
             color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            max-width: 200px;
         }
 
-        .button:hover {
-            background-color: #ff1493;
+        .hug-button:hover {
+            background-color: #e60000;
         }
 
-        footer {
-            margin-top: 40px;
-            color: #800000;
-            font-size: 0.8rem;
-            text-align: center;
-            padding: 0 15px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .hug-button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="heart-bg">
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
-        <div class="heart"></div>
+    <div class="container">
+        <h1>Happy Hug Day, My Bubu! ❤️</h1>
+        <p>
+            On this special day, I want you to know how much you mean to me. 
+            Your hugs are my safe place, my comfort, and my happiness. 
+            No matter how far apart we are, my arms will always be open for you. 
+            I love you more than words can express. 🤗
+            
+        </p>
+        <p class="heart">❤️❤️❤️</p>
+        <button class="hug-button" onclick="sendHug()">Send a Virtual Hug</button>
     </div>
 
-    <h1>Happy Promise Day, My Love! ❤️</h1>
-    <p>Today, I promise to cherish you, support you, and make every day as beautiful as you are. You make my world brighter, and this is just the beginning of countless promises I intend to keep for you. 💖</p>
-
-    <div class="card">
-        <div class="icon heart">❤️</div>
-        <p>I promise to love you endlessly, in every season and in every moment.</p>
-    </div>
-    <div class="card">
-        <div class="icon gift">🎁</div>
-        <p>I promise to make all your dreams come true and celebrate your joys as my own.</p>
-    </div>
-    <div class="card">
-        <div class="icon star">⭐</div>
-        <p>I promise to be your guiding star, always showing you how special you are.</p>
-    </div>
-
-    <a href="#" class="button">Scroll for More Surprises 🌹</a>
-
-    <footer>
-        <p>Made with love for you 💕</p>
-        <p>Forever yours, Soham 💞</p>
-    </footer>
+    <script>
+        function sendHug() {
+            alert("🤗 A warm, tight hug is on its way to you! I love you! ❤️");
+        }
+    </script>
 </body>
 </html>
