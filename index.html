@@ -3,129 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiss Day 💖</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            color: #4d2600;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-            max-width: 90%;
-            width: 100%;
-            animation: slideIn 1.5s ease-in-out;
-            margin: 20px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #e91e63;
-            margin-bottom: 20px;
-            animation: glow 2s infinite alternate;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .kiss {
-            font-size: 3rem;
-            color: #e91e63;
-            animation: spin 4s linear infinite;
-        }
-
-        .kiss-button {
-            background-color: #e91e63;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            width: 100%;
-            max-width: 200px;
-        }
-
-        .kiss-button:hover {
-            background-color: #c2185b;
-            transform: scale(1.1);
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px #e91e63; }
-            100% { text-shadow: 0 0 20px #ff4081; }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            p {
-                font-size: 1rem;
-            }
-
-            .container {
-                padding: 20px;
-            }
-
-            .kiss-button {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-
-            .kiss {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
+    <title>Happy Valentine's Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Happy Kiss Day, My Love! 💖</h1>
+        <h1>Happy Valentine's Day!</h1>
         <p>
-            Every kiss from you is a reminder of how much I adore you my babygirl.
-            Your love is the sweetest thing in my life and i can't express how lucky i am to have you. 
-            On this special day, I want to shower you with all the love and kisses in the world. 
-            You were , are , and will be everything to me. My lifeline 💋
+            Hey bubu , 
+            we know we are very far away now , but our bond remains as strong as ever , this time also shall pass , and i know you miss 
+            me and i miss u too but we can do nothing about it . 
+            To my one and only love of my life:
         </p>
-        <p class="kiss">💖💋💖</p>
-        <button class="kiss-button" onclick="sendKiss()">Send a Virtual Kiss</button>
-    </div>
+        <p>
+            From Afar, With Endless Love<br>
 
-    <script>
-        function sendKiss() {
-            alert("💋 A thousand kisses are coming your way! I love you endlessly! 💖");
-        }
-    </script>
+            From the days of childhood, hand in hand we grew,<br>
+            In every memory, there's a piece of you.<br>
+            Now miles apart, yet close in heart,<br>
+            Our love, unyielding, a timeless art.<br>
+
+            Through books and dreams, you pave your way,<br>
+            While I chase mine, both striving each day.<br>
+            In the silence of night, beneath the same star,<br>
+            I whisper, "I love you," no matter how far.<br>
+
+            Someday soon, this distance will fade,<br>
+            In each other's arms, our dreams are made.<br>
+            Until then, my heart beats true,<br>
+            Happy Valentine's, my love, to you.
+
+
+
+ 
+
+
+
+            
+        </p>
+        <button class="button" id="surpriseButton">Tap for a Surprise</button>
+        <div class="heart-animation" id="heartContainer"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
