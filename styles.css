@@ -1,0 +1,82 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  color: #ff5e78;
+  margin: 0.5rem 0;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 80%;
+  margin: 1rem auto;
+  line-height: 1.6;
+}
+
+.button {
+  padding: 1rem 2rem;
+  background-color: #ff5e78;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background-color: #ff3d60;
+  transform: scale(1.05);
+}
+
+.heart-animation {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  font-size: 2rem;
+  color: #ff5e78;
+  animation: float 3s infinite ease-in-out, move 3s linear;
+}
+
+@keyframes float {
+  0% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-20px);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  to {
+      transform: translateY(-100vh);
+  }
+}
